@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ICHI 2027 - IEEE International Conference on Healthcare Informatics</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Top Navigation -->
+<header class="navbar">
+    <div class="container">
+        <a href="index.html" class="logo">
+            <img src="assets/img/logo.jpg" alt="IEEE ICHI 2027 Logo" />
+        </a>
+        <div id="top-nav"></div>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>ICHI 2027</h1>
+    <p style="font-size: 2rem;">The 15th IEEE International Conference on Healthcare Informatics</p>
+    <p>June 11–14, 2027 &nbsp;·&nbsp; Washington, DC</p>
+  </div>
+</section>
+
+<main class="container" style="padding: 3rem 0; text-align: center;">
+
+  <section class="conference-status-alert" role="status" style="text-align: left;">
+    <strong>Early Bird Submission is now open!</strong>
+    Submit by <strong>September 21, 2026</strong> for an early decision.
+    <a class="registration-link-status" href="call-for-early-submission.html">Learn more</a>
+  </section>
+
+  <div style="margin-top: 3rem; padding: 2.5rem; border: 1px solid #dce8f7; border-radius: 16px; background: #f4f8fd;">
+    <h2 style="color: var(--umn-maroon); margin-bottom: 1rem;">Website Coming Soon</h2>
+    <p style="font-size: 1.1rem; color: #444; max-width: 600px; margin: 0 auto 1.5rem;">
+      Full conference details including keynotes, program, workshops, registration, and venue will be announced soon. Stay tuned!
+    </p>
+    <!-- <p style="color: #666;">
+      Questions? Contact us at
+      <a href="mailto:ichi2027@temple.edu">ichi2027@temple.edu</a>
+    </p> -->
+  </div>
+
+</main>
+
+<div id="footer"></div>
+<script>
+    fetch('nav.html')
+          .then(res => res.text())
+          .then(html => { document.getElementById('top-nav').innerHTML = html; });
+
+  fetch('footer.html')
+        .then(res => res.text())
+        .then(html => { document.getElementById('footer').innerHTML = html; });
+</script>
+
+</body>
+</html>

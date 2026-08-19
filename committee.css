@@ -1,0 +1,144 @@
+﻿body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.header {
+    background-color: #1B3464;
+    color: white;
+    padding: 40px 20px 20px;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #ffcc33;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.committee-group {
+    margin-bottom: 60px;
+    clear: both;
+}
+
+.committee-group h3 {
+    font-size: 1.5rem;
+    color: #1a237e;
+    border-left: 4px solid #1a237e;
+    padding-left: 12px;
+    margin-bottom: 24px;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 10px;
+}
+
+.committee-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 260px;
+    text-align: center;
+    padding: 16px;
+    box-sizing: border-box;
+    transition: transform 0.3s;
+}
+
+.committee-card:hover {
+    transform: translateY(-4px);
+}
+
+.committee-card img {
+    width: 180px;               /* 调整头像大小，可根据需要修改 */
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;         /* 让头像变成圆形 */
+    border: 4px solid white;    /* 白色圆环边框 */
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); /* 可选：轻微阴影 */
+    margin-bottom: 1rem;
+}
+
+.committee-card h4 {
+    margin: 8px 0 4px;
+    font-size: 1.1rem;
+    color: #0d47a1;
+}
+
+.committee-card p {
+    margin: 2px 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.committee-email {
+    font-size: 0.85rem;
+    color: var(--umn-maroon);
+    margin-top: 4px;
+    word-break: break-all;
+}
+
+.committee-email a {
+    color: var(--umn-maroon);
+    text-decoration: none;
+}
+
+.committee-email a:hover {
+    text-decoration: underline;
+}
+
+#backToTop {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #1B3464;
+    color: #ffcc33;
+    cursor: pointer;
+    padding: 10px 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+#backToTop:hover {
+    background-color: #ffcc33;
+    color: #1B3464;
+}
+
+@media (max-width: 768px) {
+    .committee-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .committee-card {
+        width: 90%;
+        max-width: 300px;
+        margin: 10px 0;
+    }
+}
