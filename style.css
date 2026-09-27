@@ -41,6 +41,11 @@ img {
     z-index: 999;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+.navbar .logo {
+  background: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
 .logo img {
     height: clamp(60px, 5.5vw, 80px);
 }
@@ -243,7 +248,7 @@ img {
 
 /* Hero Section */
 .hero {
-    background-image: url('assets/img/Washington-DC-Scenery.jpg');
+    background-image: url('assets/img/banner/banner2.jpeg');
     background-size: cover;
     background-position: center;
     height: 500px;
