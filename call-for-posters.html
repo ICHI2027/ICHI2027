@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Call for Posters and Demos | ICHI 2027</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <img src="assets/img/logo/PNG/2027-logo-IEEE ICHI-FINAL_Color.png" alt="IEEE ICHI 2027 Logo" />
+    </a>
+    <div id="top-nav"></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Call for Posters and Demos</h1>
+  </div>
+</section>
+
+<main class="container" style="margin-top: 2rem; padding-bottom: 3rem;">
+  <h2>Important Dates</h2>
+  <ul>
+    <li><strong>Submission deadline:</strong> January 30, 2027</li>
+    <li><strong>Notification of acceptance:</strong> March 13, 2027</li>
+    <li><strong>Camera-ready copy due:</strong> April 6, 2027</li>
+  </ul><br>
+
+  <p style="border-bottom: 2px solid #e0e0e0;"></p><br>
+
+  <h2>Posters and Demos</h2>
+  <p>Posters and demos are an excellent way to present innovative ideas, late-breaking work, concepts, work-in-progress, early stages of research, and preliminary results to academic and industry audiences.</p><br>
+
+  <h2>Submission</h2>
+  <p>Submissions should fit the main topics of the conference: analytics, human factors, and systems. It is not required to select a specific track.</p>
+  <p>Poster and demo submissions should be limited to a <strong>one-page abstract, excluding references</strong>, in the same format as full and short papers. Demo submissions may include an additional appendix page describing the demo and showing images of it. This page is for review only, does not need to follow formatting requirements, and must be excluded from the camera-ready submission.</p>
+  <p>Submissions must follow the <a href="https://www.ieee.org/conferences/publishing/templates.html" target="_blank" rel="noopener noreferrer">IEEE Proceedings Format</a>. Select the <strong>Poster and Demo Track</strong> when submitting. The submission and review portal will be announced later.</p><br>
+
+  <h2>Reviewing</h2>
+  <p>The review process is single-blind. Abstracts must include the authors' names and affiliations.</p><br>
+
+  <p style="border-bottom: 2px solid #e0e0e0;"></p><br>
+
+  <h2>Publication and Presentation</h2>
+  <p>Accepted poster and demo abstracts will be published in IEEE Xplore and indexed in other Abstracting and Indexing (A&amp;I) databases. Posters and demos will be presented in a dedicated session during the main conference, with opportunities for discussion and interaction.</p>
+
+  <section class="committee-section">
+    <h2>Poster and Demonstration Chairs</h2>
+    <div class="committee-grid">
+      <div class="committee-card">
+        <img src="assets/img/shandong_wu.jpg" alt="Shandong Wu">
+        <h4>Shandong Wu</h4>
+        <h4>University of Pittsburgh</h4>
+        <a href="mailto:wus3@upmc.edu">wus3@upmc.edu</a>
+      </div>
+      <div class="committee-card">
+        <img src="assets/img/jie_zhang.jpg" alt="Jie Zhang">
+        <h4>Jie Zhang</h4>
+        <h4>Indiana University</h4>
+        <a href="mailto:jizhan@iu.edu">jizhan@iu.edu</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="footer"></div>
+<script>
+  fetch('nav.html')
+    .then(res => res.text())
+    .then(html => { document.getElementById('top-nav').innerHTML = html; });
+
+  fetch('footer.html')
+    .then(res => res.text())
+    .then(html => { document.getElementById('footer').innerHTML = html; });
+</script>
+
+</body>
+</html>
