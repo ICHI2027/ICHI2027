@@ -51,7 +51,7 @@
 
 <div id="footer"></div>
 <script>
-    fetch('nav.html')
+    fetch('nav.html', { cache: 'no-store' })
           .then(res => res.text())
           .then(html => { document.getElementById('top-nav').innerHTML = html; });
 
