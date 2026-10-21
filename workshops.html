@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workshops | ICHI 2027</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="navbar">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <img src="assets/img/logo/PNG/2027-logo-IEEE ICHI-FINAL_Color.png" alt="IEEE ICHI 2027 Logo" />
+    </a>
+    <div id="top-nav"></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>ICHI 2027 Workshops</h1>
+    <p>June 11–14, 2027 · Washington, DC</p>
+  </div>
+</section>
+
+<main class="container" style="margin-top: 2rem; padding-bottom: 3rem;">
+  <h2>Accepted Workshops</h2>
+  <p>The ICHI 2027 workshop program will be announced after workshop proposals have been reviewed.</p>
+  <p>For the Call for Workshop Proposals and workshop paper dates, visit the <a href="call-for-workshops.html">Call for Workshops</a> page.</p>
+</main>
+
+<div id="footer"></div>
+<script>
+  fetch('nav.html', { cache: 'no-store' })
+    .then(res => res.text())
+    .then(html => { document.getElementById('top-nav').innerHTML = html; });
+  fetch('footer.html')
+    .then(res => res.text())
+    .then(html => { document.getElementById('footer').innerHTML = html; });
+</script>
+</body>
+</html>
