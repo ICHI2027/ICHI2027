@@ -25,6 +25,57 @@ img {
 }
 
 /* Container */
+.cfp-content {
+  margin-top: 2rem;
+  padding-bottom: 3rem;
+  overflow-wrap: anywhere;
+}
+.cfp-content > h2:not(:first-child) {
+  margin-top: 2rem;
+}
+.cfp-content > h3 {
+  color: var(--umn-maroon);
+  margin: 1.25rem 0 0.75rem;
+}
+.cfp-content > p,
+.cfp-content > ul {
+  margin-bottom: 1rem;
+}
+.cfp-content li + li {
+  margin-top: 0.4rem;
+}
+.cfp-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+.cfp-dates {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.cfp-dates th,
+.cfp-dates td {
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid #ddd;
+  vertical-align: top;
+}
+.cfp-dates thead th {
+  background: var(--umn-maroon);
+  color: var(--text-light);
+}
+.cfp-dates tbody th {
+  font-weight: 500;
+}
+.cfp-dates td {
+  min-width: 155px;
+}
+.cfp-content .committee-card img {
+  height: 220px;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
 .container {
     width: 90%;
     max-width: 1200px;
@@ -275,13 +326,16 @@ img {
     text-align: center;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.4);
-    padding: 1rem 2rem;
+    padding: 1.5rem 2rem;
     border-radius: 8px;
-    display: inline-block;
+    width: min(1100px, calc(100% - 2rem));
+    overflow-wrap: anywhere;
+    letter-spacing: 0;
 }
 
 .hero-text h1 {
     font-size: 3.5rem;
+  line-height: 1.2;
     font-weight: 700;
     color: var(--umn-gold);
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
@@ -292,6 +346,26 @@ img {
     font-weight: 500;
     color: #fff;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text .hero-subtitle {
+  margin-top: 0.85rem;
+  line-height: 1.5;
+}
+.hero-text .hero-description {
+  margin-top: 0.85rem;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.hero-actions .button {
+  margin: 0;
 }
 
 
@@ -1075,8 +1149,16 @@ del {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .navbar {
+    position: static;
+  }
     .navbar .container {
         width: 92%;
+    flex-direction: column;
+    align-items: center;
+  }
+  #top-nav {
+    width: 100%;
     }
     .nav-menu {
         flex-wrap: wrap;
@@ -1088,9 +1170,16 @@ del {
     }
     .hero {
         height: 400px;
+      margin-top: 0;
     }
     .hero-text h1 {
         font-size: 2.2rem;
+    }
+    .hero-text {
+      padding: 1.25rem 1rem;
+    }
+    .hero-text .hero-description {
+      font-size: 1.15rem;
     }
 }
 

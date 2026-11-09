@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Call for Health Data Challenge | ICHI 2027</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="navbar">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <img src="assets/img/logo/PNG/2027-logo-IEEE ICHI-FINAL_Color.png" alt="IEEE ICHI 2027 Logo" />
+    </a>
+    <div id="top-nav"></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Call for Health Data Challenge</h1>
+    <p class="hero-subtitle">June 21–24, 2027 · Washington, DC, USA</p>
+  </div>
+</section>
+
+<main class="container cfp-content">
+  <h2>Important Dates</h2>
+  <div class="cfp-table-wrap">
+    <table class="cfp-dates">
+      <caption class="sr-only">Health Data Challenge milestones and dates</caption>
+      <thead><tr><th scope="col">Milestone</th><th scope="col">Date</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Call posted; registration opens</th><td>October 28, 2026</td></tr>
+        <tr><th scope="row">Development data, starter kit, and baseline released</th><td><strong>November 20, 2026</strong></td></tr>
+        <tr><th scope="row">Registration closes; teams final</th><td>December 18, 2026</td></tr>
+        <tr><th scope="row">System submission deadline (code and system description)</th><td><strong>January 8, 2027</strong></td></tr>
+        <tr><th scope="row">Official evaluation runs by the organizers</th><td>January 9–14, 2027</td></tr>
+        <tr><th scope="row">Results announced</th><td><strong>January 15, 2027</strong></td></tr>
+        <tr><th scope="row">Paper abstract due (ICHI 2027 main paper track)</th><td>January 25, 2027</td></tr>
+        <tr><th scope="row">Full paper due (ICHI 2027 main paper track)</th><td><strong>February 1, 2027</strong></td></tr>
+        <tr><th scope="row">Paper acceptance decision</th><td>March 15, 2027</td></tr>
+        <tr><th scope="row">Camera-ready paper due</th><td>April 19, 2027</td></tr>
+        <tr><th scope="row">IEEE ICHI 2027, Washington, DC</th><td>June 21–24, 2027</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Patient–Trial Matching Challenge @ IEEE ICHI 2027</h2>
+  <p>IEEE ICHI 2027 will host the Patient–Trial Matching Challenge, a shared task on automated clinical-trial eligibility screening from electronic health records (EHRs). Systems read the original inclusion and exclusion criteria of a trial, decide for each patient whether each criterion is met, and cite the records that support the decision. The data are fully synthetic, so no real patient information is involved.</p>
+  <p>Existing benchmarks test parts of this problem: notes only with yes/no labels (n2c2 2018), short case summaries judged at the trial level (TREC Clinical Trials 2021–2023), or criterion-level reasoning on brief single-note summaries (TrialGPT). This challenge evaluates longitudinal structured data and clinical notes together, separates missing evidence from contradictory evidence, and requires every decision to cite its evidence.</p>
+
+  <h3>Fast Facts</h3>
+  <ul>
+    <li><strong>What:</strong> criterion-by-criterion eligibility screening, in three tracks: Structured Data, Clinical Notes, and Multimodal EHR (primary).</li>
+    <li><strong>How it works:</strong> teams submit a runnable system; the organizers run it on held-out patients and trials with a designated large language model, and score the quality of its labels and evidence, its cost, and its runtime.</li>
+    <li><strong>Who can join:</strong> students, researchers, and industry practitioners worldwide. Participation is free.</li>
+  </ul>
+
+  <h2>Tasks</h2>
+  <p><strong>Input.</strong> A trial’s original eligibility criteria (unchanged from the protocol), and for each patient a synthetic EHR as of a fixed screening date:</p>
+  <ul>
+    <li><strong>Track 1 · Structured Data:</strong> OMOP CDM v5.4 tables only.</li>
+    <li><strong>Track 2 · Clinical Notes:</strong> clinical notes and patient demographics only.</li>
+    <li><strong>Track 3 · Multimodal EHR (primary track):</strong> OMOP tables and clinical notes together.</li>
+  </ul>
+  <p><strong>Output.</strong> A JSON Lines file with one line for every patient × trial × criterion: <code>patient_id</code>, <code>nct_id</code>, <code>criterion_id</code>, one label, and an evidence list. Each evidence item is an OMOP row (table name and <code>row_id</code>) or a clinical note (<code>note_id</code>). An empty list means no supporting evidence was found. Systems may cite only records visible in their track. A sample file is included in the starter kit.</p>
+  <p><strong>Labels.</strong> A label describes whether the criterion text is satisfied, not whether the patient is eligible:</p>
+  <ul>
+    <li><strong>Met:</strong> the record shows the criterion is satisfied as of the screening date.</li>
+    <li><strong>Unmet:</strong> the record shows it is not satisfied. For conditions, drugs, procedures, devices, and visits, no record in the criterion’s time window counts as not present.</li>
+    <li><strong>Not Assessable:</strong> there is no usable evidence to decide. For measurements and observations, a value that was never recorded in the window makes the criterion Not Assessable rather than Unmet.</li>
+    <li><strong>Conflicting:</strong> the window contains evidence both for and against, for example one statement that a condition is present and one that it is absent, or two values on the same day on opposite sides of a threshold.</li>
+  </ul>
+  <p><strong>Timing.</strong> All records are as of one fixed screening date. A note counts only if it was written on or before that date, and a mention in a note is dated by the event it describes, not by the date of the note. A later finding that supersedes an earlier one is not a conflict.</p>
+  <p>A Met exclusion criterion makes the patient ineligible. Criteria that EHRs cannot answer, such as informed consent or investigator judgment, are labeled Met for inclusion and Unmet for exclusion; the development data show worked examples.</p>
+  <p><strong>Screening status.</strong> The organizers derive it from the submitted labels for each patient and trial: Ineligible if any inclusion criterion is Unmet or any exclusion criterion is Met; Eligible if every inclusion criterion is Met and every exclusion criterion is Unmet; Uncertain otherwise. Eligible means eligible for further screening, not for enrollment. The organizers also rank the patients for each trial from the labels; teams do not submit rankings. Teams may enter one, two, or all three tracks.</p>
+
+  <h2>Data</h2>
+  <ul>
+    <li><strong>Synthetic and privacy-free:</strong> longitudinal patient records generated for this challenge, in the OMOP CDM v5.4 with standard vocabularies (ICD-10-CM, SNOMED CT, RxNorm, LOINC), plus synthetic clinical notes across several encounter types. No real patient records are used.</li>
+    <li><strong>Development set:</strong> released November 20 to registered teams, with the trial criteria, patient records, reference labels, and evidence references for every criterion.</li>
+    <li><strong>Held-out set:</strong> different trials, from several clinical areas, and different patients. The trial texts, patient records, and answer keys stay private and are used only in the official runs.</li>
+    <li><strong>Fair use:</strong> challenge data may not be shared outside the registered team.</li>
+  </ul>
+  <p>Data scale and how the records and labels are generated and checked will be described on the Challenge Details page.</p>
+
+  <h2>Evaluation</h2>
+  <p>Each track has its own reference labels and leaderboard. Quality combines four components (provisional weights):</p>
+  <ul>
+    <li><strong>Criterion labels (40%):</strong> macro-averaged F1 across the four labels.</li>
+    <li><strong>Screening status (20%):</strong> macro-averaged F1 for Eligible, Uncertain, and Ineligible, derived from the labels.</li>
+    <li><strong>Evidence (20%):</strong> F1 of the cited records against the reference evidence.</li>
+    <li><strong>Patient ranking (20%):</strong> nDCG of the patient ranking derived from the labels, per trial.</li>
+  </ul>
+  <p>Quality Q = 0.40 × criterion F1 + 0.20 × screening F1 + 0.20 × evidence F1 + 0.20 × ranking nDCG.</p>
+  <p><strong>Scoring rules:</strong> only the first line for each patient × trial × criterion counts; a missing or malformed line gets no credit and counts as Not Assessable for screening and ranking; citing a record that does not exist or is not visible in the track counts as a false positive.</p>
+  <p><strong>Qualification:</strong> a run is ranked if it passes the build and model-use checks and reaches a Q of at least 0.6 (provisional).</p>
+  <p><strong>Ranking:</strong> qualified runs are compared on quality, model cost, and runtime together. Runs that no other run beats on all three form the first tier; the next tier is formed from the remaining runs, and so on. Within a tier, higher quality ranks higher.</p>
+  <p><strong>Leaderboard:</strong> each track shows Q, its four components, cost, runtime, and 95% bootstrap intervals; the intervals do not change the official ranking. The organizers’ baseline is shown but does not compete.</p>
+  <p>Final weights, limits, and the scoring code are released with the development data.</p>
+
+  <h2>Participation and Registration</h2>
+  <ul>
+    <li><strong>Register (free):</strong> by December 18, 2026, through the registration form on the Challenge Details page (team name, member names, affiliations, and a primary contact).</li>
+    <li><strong>Teams:</strong> up to five members; each person may join only one team.</li>
+    <li><strong>Starter kit:</strong> a Docker template, a baseline system, sample submissions, and the scoring script, released with the development data.</li>
+    <li><strong>Model access:</strong> during development, teams use the designated models through their own accounts at their own expense; the organizers provide model access for the official runs.</li>
+  </ul>
+  <p>The Challenge Details page and registration form links will be announced here when available. For challenge inquiries and registration, contact <a href="mailto:hexing@iu.edu">hexing@iu.edu</a>.</p>
+
+  <h2>Submission, Publication, and Recognition</h2>
+  <ul>
+    <li><strong>System submission (by January 8):</strong> source code, a Dockerfile with pinned dependencies, and a two-page system description, one system per track. Source code stays private to the organizers; public release is encouraged but optional.</li>
+    <li><strong>Official runs:</strong> the organizers check each submission for prohibited models, build it from source, and run it once per track on the held-out data, in the same CPU-only environment with a fixed API concurrency. Dependencies may be downloaded at build time; at run time the only network access is to the organizers’ model proxy. Reruns happen only after an organizer-side failure, and no fixes are accepted after the deadline.</li>
+    <li><strong>Limits:</strong> provisionally USD 50 of model cost and 12 hours per track run, with cost metered at list prices fixed at the start of the evaluation. A run that reaches a limit is stopped and scored on what it has written.</li>
+    <li><strong>Challenge paper (optional, by February 1):</strong> Top-performing and methodologically strong teams will be invited to submit a short paper describing their system and results through the ICHI 2027 main paper track. Standard peer review applies; an invitation does not guarantee acceptance. Accepted papers appear in the IEEE ICHI 2027 proceedings on IEEE Xplore.</li>
+    <li><strong>Publication:</strong> accepted papers appear in the IEEE ICHI 2027 proceedings on IEEE Xplore; at least one author must register for and present at the conference.</li>
+    <li><strong>Recognition:</strong> results and awards are presented at a challenge session during the conference.</li>
+  </ul>
+
+  <h2>Rules of Conduct (Preview)</h2>
+  <ul>
+    <li><strong>Eligibility and teams:</strong> open internationally; team membership is declared at registration and fixed after December 18.</li>
+    <li><strong>Models:</strong> systems must use the designated large language model, and optionally the designated embedding model, announced with the development data. No other generative or embedding models are allowed in the official runs; declared rule-based methods, vocabulary lookups, and non-LLM NLP tools may be used. Every system must make at least one successful call to the designated language model.</li>
+    <li><strong>Data use:</strong> use the provided data and declared public knowledge resources such as vocabularies and guidelines. External patient datasets may not be used for training, fine-tuning, or evaluation. Attempts to recover hidden answers are prohibited.</li>
+    <li><strong>Organizer teams:</strong> teams from the organizers’ groups may take part but are not eligible for awards.</li>
+    <li><strong>Integrity:</strong> submissions must be the team’s own work; violations lead to disqualification.</li>
+  </ul>
+  <p>Complete rules and technical requirements will be posted on the Challenge Details page.</p>
+
+  <h2>Awards</h2>
+  <ul>
+    <li><strong>Awards:</strong> Certificates and recognition for the top teams; additional distinctions may be announced by the ICHI 2027 organizers.</li>
+    <li><strong>Prize:</strong> $500 for 1st, $200 for 2nd, $100 for 3rd, and $50 for 4th–10th.</li>
+  </ul>
+  <p>Prizes are awarded in a track only if at least three teams submit valid runs.</p>
+
+  <h2>Organizers and Contact</h2>
+  <ul>
+    <li><strong>Data Challenge Chair:</strong> Xing He, PhD, Indiana University, <a href="mailto:hexing@iu.edu">hexing@iu.edu</a></li>
+    <li><strong>Challenge Lead:</strong> Hongyu Chen, University of Florida, <a href="mailto:hongyuchen1@ufl.edu">hongyuchen1@ufl.edu</a></li>
+    <li><strong>Challenge inquiries and registration:</strong> <a href="mailto:hexing@iu.edu">hexing@iu.edu</a></li>
+    <li><strong>Sponsorship and industry contact:</strong> To be announced.</li>
+  </ul>
+
+  <section class="committee-section">
+    <h2>Data Challenge Chair</h2>
+    <div class="committee-grid">
+      <div class="committee-card">
+        <img src="assets/img/xing_he.jpg" alt="Xing He">
+        <h4>Xing He</h4>
+        <p>Indiana University</p>
+        <a href="mailto:hexing@iu.edu">hexing@iu.edu</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="footer"></div>
+<script>
+  fetch('nav.html', { cache: 'no-store' })
+    .then(res => res.text())
+    .then(html => { document.getElementById('top-nav').innerHTML = html; });
+  fetch('footer.html')
+    .then(res => res.text())
+    .then(html => { document.getElementById('footer').innerHTML = html; });
+</script>
+</body>
+</html>
