@@ -132,7 +132,8 @@ img {
 .nav-menu li {
     flex: 0 1 auto;
 }
-.nav-menu li a {
+.nav-menu li a,
+.nav-menu summary {
     color: var(--text-light);
     text-decoration: none;
     font-weight: 500;
@@ -240,7 +241,8 @@ img {
     .nav-menu {
         gap: 0.42rem;
     }
-    .nav-menu li a {
+    .nav-menu li a,
+    .nav-menu summary {
         font-size: 0.78rem;
     }
     .nav-menu li.nav-feature a {
@@ -248,15 +250,11 @@ img {
     }
 }
 @media (max-width: 1280px) {
-    .navbar .container {
-        align-items: flex-start;
-    }
     .nav-menu {
-        flex-wrap: wrap;
-        row-gap: 0.42rem;
         gap: 0.58rem;
     }
-    .nav-menu li a {
+    .nav-menu li a,
+    .nav-menu summary {
         font-size: 0.86rem;
     }
     .nav-menu li.nav-feature a {
@@ -295,6 +293,62 @@ img {
 }
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.calls-menu {
+    position: relative;
+}
+.calls-menu > summary {
+    cursor: pointer;
+    list-style: none;
+    gap: 0.3rem;
+    text-transform: uppercase;
+    color: var(--umn-gold);
+    letter-spacing: 0.06em;
+}
+.calls-menu > summary::-webkit-details-marker {
+    display: none;
+}
+.calls-menu > summary:hover {
+    color: var(--umn-gold);
+}
+.calls-menu > summary:focus-visible {
+    outline: 2px solid var(--umn-gold);
+    outline-offset: 4px;
+}
+.calls-menu > .dropdown-content {
+    left: auto;
+    right: 0;
+    width: max-content;
+    min-width: 0;
+    max-width: min(440px, 90vw);
+    padding: 0.35rem 0;
+    list-style: none;
+}
+.calls-menu[open] > .dropdown-content {
+    display: block;
+}
+.calls-menu .dropdown-content li,
+.calls-menu .dropdown-content a,
+.calls-menu .dropdown-content span {
+    white-space: normal;
+}
+.calls-menu .dropdown-content a,
+.calls-menu .dropdown-content span {
+    display: block;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+.calls-menu .dropdown-content [aria-disabled="true"] {
+    color: #666;
+}
+@media (max-width: 768px) {
+    .calls-menu > .dropdown-content {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        max-width: 80vw;
+    }
 }
 
 /* Hero Section */
@@ -1161,11 +1215,11 @@ del {
     width: 100%;
     }
     .nav-menu {
-        flex-wrap: wrap;
         justify-content: center;
         gap: 0.85rem 1rem;
     }
-    .nav-menu li a {
+    .nav-menu li a,
+    .nav-menu summary {
         font-size: 0.82rem;
     }
     .hero {

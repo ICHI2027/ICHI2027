@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Updated: November 24, 2026 -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Call for Doctoral Consortium | ICHI 2027</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="navbar">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <img src="assets/img/logo/PNG/2027-logo-IEEE ICHI-FINAL_Color.png" alt="IEEE ICHI 2027 Logo" />
+    </a>
+    <div id="top-nav"></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Call for Doctoral Consortium</h1>
+    <p class="hero-subtitle">July 2027 · Washington, DC, USA</p>
+  </div>
+</section>
+
+<main class="container cfp-content">
+  <h2>Doctoral Consortium</h2>
+  <p>The 2027 ICHI Doctoral Consortium invites doctoral students to submit abstracts on solving problems in healthcare, public health, and everyday wellness through the application of computer science, information science, information technology, and communication technology.</p>
+  <p>The Doctoral Consortium offers an outstanding opportunity for doctoral students working on health informatics problems to discuss their work in progress and receive feedback and guidance from Consortium mentors.</p>
+  <p>All doctoral students whose extended abstract is accepted will be scheduled for a rapid-fire talk where each participant presents a synopsis of their work followed by Q&amp;A. Participants will interact with mentors in small groups to discuss their research and receive further feedback. A panel is also planned on general career strategies in the field.</p>
+  <p>Participants are invited to present a poster of their research during the main conference. This is optional.</p>
+
+  <h2>Important Dates</h2>
+  <ul>
+    <li><strong>Submission Deadline:</strong> March 15, 2027</li>
+    <li><strong>Notification of Acceptance:</strong> March 30, 2027</li>
+    <li><strong>Camera-Ready Paper Due:</strong> April 19, 2027</li>
+  </ul>
+
+  <h2>Submission</h2>
+  <p>To apply to the ICHI 2027 Doctoral Consortium, we request that each student submits a single PDF file with the following items:</p>
+  <ul>
+    <li><strong>Cover Letter:</strong> A page cover letter justifying what the student hopes to gain by attending the Doctoral Consortium.</li>
+    <li><strong>Recommendation Letter</strong> from the student&rsquo;s main PhD dissertation advisor.</li>
+    <li><strong>Extended Abstract:</strong> One page abstract of a research project (ongoing or planned) in the <a href="https://www.ieee.org/conferences/publishing/templates.html" target="_blank" rel="noopener noreferrer">IEEE Proceedings Format</a>.</li>
+  </ul>
+  <p>Applications will be submitted through OpenReview. <em>We will announce when the OpenReview submission site is open.</em></p>
+</main>
+
+<div id="footer"></div>
+<script>
+  fetch('nav.html', { cache: 'no-store' })
+    .then(res => res.text())
+    .then(html => { document.getElementById('top-nav').innerHTML = html; });
+
+  fetch('footer.html')
+    .then(res => res.text())
+    .then(html => { document.getElementById('footer').innerHTML = html; });
+</script>
+</body>
+</html>
