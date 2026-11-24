@@ -21,7 +21,7 @@
 </header>
 
 <!-- Hero Section -->
-<section class="hero">
+<section class="hero home-hero">
   <div class="hero-text">
     <h1>ICHI 2027</h1>
     <p class="hero-description">The 15th IEEE International Conference on Healthcare Informatics</p>
@@ -29,46 +29,72 @@
   </div>
 </section>
 
-<main class="container" style="padding: 3rem 0; text-align: center;">
-
-  <section style="max-width: 760px; margin: 2rem auto; text-align: left;">
-    <h2>Updates</h2>
-    <ul>
-      <li><strong>November 24, 2026:</strong> The exact dates for ICHI 2027 will be announced once finalized.</li>
-    </ul>
+<main class="container home-content">
+  <section class="home-updates" aria-labelledby="updates-heading">
+    <h2 id="updates-heading">Updates</h2>
+    <p><time datetime="2026-11-24">November 24, 2026</time><span>The exact dates for ICHI 2027 will be announced once finalized.</span></p>
   </section>
 
-  <section style="max-width: 760px; margin: 2rem auto; text-align: left;">
-    <h2>Regular Paper Track Deadlines</h2>
-    <ul>
-      <li><strong>Abstract:</strong> January 25, 2027</li>
-      <li><strong>Full paper submission:</strong> February 1, 2027</li>
-      <li><strong>Decision of paper acceptance:</strong> March 15, 2027</li>
-      <li><strong>Camera-ready paper due:</strong> April 19, 2027</li>
-    </ul>
-  </section>
+  <div class="home-grid">
+    <section aria-labelledby="deadlines-heading">
+      <h2 id="deadlines-heading">Regular Paper Track Deadlines</h2>
+      <dl class="home-deadlines">
+        <div class="home-deadline home-deadline--primary">
+          <dt>Abstract</dt>
+          <dd><time datetime="2027-01-25">January 25, 2027</time></dd>
+        </div>
+        <div class="home-deadline home-deadline--primary">
+          <dt>Full paper submission</dt>
+          <dd><time datetime="2027-02-01">February 1, 2027</time></dd>
+        </div>
+        <div class="home-deadline">
+          <dt>Decision of paper acceptance</dt>
+          <dd><time datetime="2027-03-15">March 15, 2027</time></dd>
+        </div>
+        <div class="home-deadline">
+          <dt>Camera-ready paper due</dt>
+          <dd><time datetime="2027-04-19">April 19, 2027</time></dd>
+        </div>
+      </dl>
+    </section>
 
-  <section style="max-width: 760px; margin: 2rem auto; text-align: left;">
-    <h2>More Calls</h2>
-    <ul>
-      <li><a href="call-for-doctorial-consortium.html">Call for Doctoral Consortium</a>: submissions due March 15, 2027.</li>
-      <li><a href="call-for-posters.html">Call for Posters &amp; Demos</a> is now available. Submission deadline: January 30, 2027. Submission portal details will be announced later.</li>
-      <li><a href="call-for-workshops.html">Call for Workshops</a> is now available. Workshop proposal deadline: December 15, 2026 (ET; to be confirmed).</li>
-      <li><a href="call-for-health-data-challenge.html">Patient–Trial Matching Health Data Challenge</a>: registration closes December 18, 2026; systems due January 8, 2027.</li>
-      <li><a href="call-for-tutorials.html">Call for Tutorials</a>: proposals due February 21, 2027 AoE.</li>
-    </ul>
-  </section>
+    <section aria-labelledby="calls-heading">
+      <h2 id="calls-heading">Calls for Participation</h2>
+      <ul class="home-calls">
+        <li>
+          <h3><a href="call-for-workshops.html">Call for Workshops</a></h3>
+          <p>Workshop proposals due <time datetime="2026-12-15">December 15, 2026</time> (ET; to be confirmed).</p>
+        </li>
+        <li>
+          <h3><a href="call-for-health-data-challenge.html">Patient–Trial Matching Health Data Challenge</a></h3>
+          <p>Registration closes <time datetime="2026-12-18">December 18, 2026</time>; systems due <time datetime="2027-01-08">January 8, 2027</time>.</p>
+        </li>
+        <li>
+          <h3><a href="call-for-posters.html">Call for Posters &amp; Demos</a></h3>
+          <p>Submissions due <time datetime="2027-01-30">January 30, 2027</time>. Submission portal details will be announced later.</p>
+        </li>
+        <li>
+          <h3><a href="call-for-tutorials.html">Call for Tutorials</a></h3>
+          <p>Proposals due <time datetime="2027-02-21">February 21, 2027</time> AoE.</p>
+        </li>
+        <li>
+          <h3><a href="call-for-doctorial-consortium.html">Call for Doctoral Consortium</a></h3>
+          <p>Submissions due <time datetime="2027-03-15">March 15, 2027</time>.</p>
+        </li>
+      </ul>
+    </section>
+  </div>
 
-  <div style="margin-top: 3rem; padding: 2.5rem; border: 1px solid #dce8f7; border-radius: 16px; background: #f4f8fd;">
-    <h2 style="color: var(--umn-maroon); margin-bottom: 1rem;">More Conference Details Coming Soon</h2>
-    <p style="font-size: 1.1rem; color: #444; max-width: 600px; margin: 0 auto 1.5rem;">
+  <section class="home-more" aria-labelledby="more-heading">
+    <h2 id="more-heading">More Conference Details Coming Soon</h2>
+    <p>
       Additional conference details, including keynotes, program, registration, and venue, will be announced soon.
     </p>
     <!-- <p style="color: #666;">
       Questions? Contact us at
       <a href="mailto:ichi2027@temple.edu">ichi2027@temple.edu</a>
     </p> -->
-  </div>
+  </section>
 
 </main>
 
